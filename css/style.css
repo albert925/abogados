@@ -10,6 +10,26 @@ footer{
 	color: #D1CFD0;
 }
 	footer #titumap{color: #000;}
+	footer #redes{
+		display: flex;
+	}
+		footer #redes a{
+			-webkit-align-items: center;
+			-ms-align-items: center;
+			align-items: center;
+			border: 1px solid #D1CFD0;
+			border-radius: 100%;
+			color: #D1CFD0;
+			display: flex;
+			font-size: 14px;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			height: 25px;
+			margin: 0 0.25em;
+			text-decoration: none;
+			width: 25px;
+		}
 	footer .fionfoot{
 		background: #08172C;
 		font-size: 12px;
@@ -234,7 +254,13 @@ header{
 	padding: 3em;
 }
 @media screen and (max-width: 800px){
+		footer .flexfoot #contfo,footer .flexfoot #mapagoogle{
+			margin: 1em auto;
+			width: 90%;
+		}
 	header{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 		header #logo{
@@ -271,13 +297,20 @@ header{
 			border-right: 0;
 			border-bottom: 1px solid #D0D4D7;
 		}
-	.flab{
+	.flab,footer .flexfoot,.flxcont{
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
 		.flab figure{
 			margin: 0 auto;
+		}
+		.flxcont article{
+			margin: 1em auto;
+			width: 90%;
+		}
+		.flxcont .lefsub{
+			text-align: center;
 		}
 			.frases .fraitem h2{
 				font-size: 30px;
@@ -310,4 +343,8 @@ header{
 				header #minmyred #spanmm span{
 					margin: 0;
 				}
+			.flxcont article h2{
+				font-size: 25px;
+				margin: 0;
+			}
 }
