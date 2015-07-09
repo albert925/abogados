@@ -4,7 +4,7 @@
 	$_SESSION=array();
 	session_destroy();
 	echo "<script type='text/javascript'>";
-		echo "var pagina='../provadm';";
+		echo "var pagina='../varadm';";
 		echo "document.location.href=pagina;";
 	echo "</script>";
 ?>
