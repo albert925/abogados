@@ -40,6 +40,7 @@ h1,h2{
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
 	justify-content: space-between;
+	padding: 1em 0;
 }
 	.flxB figure{
 		margin-bottom: 1em;
