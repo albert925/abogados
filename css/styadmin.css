@@ -1,0 +1,67 @@
+h1,h2{
+	text-align: center;
+}
+#mnB{
+	display: flex;
+	-webkit-justify-content: space-around;
+	-ms-justify-content: space-around;
+	justify-content: space-around;
+}
+	#mnB a{
+		background: #122545;
+		color: #D1CFD0;
+		padding: 0 0.5em;
+		text-decoration: none;
+	}
+	#mnB a:hover,#mnB a:active{
+		background: #254D81;
+	}
+.cjaing{
+	height: 0;
+	overflow: hidden;
+}
+.dell{
+	background: #EBEBEB;
+	color: #9198A2;
+	text-decoration: none;
+}
+.dell:hover,.dell:active{
+	background: #254D81;
+	color: #fff;
+}
+.flA{
+	display: flex;
+	-webkit-justify-content: space-around;
+	-ms-justify-content: space-around;
+	justify-content: space-around;
+}
+.flxB{
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
+}
+	.flxB figure{
+		margin-bottom: 1em;
+		width: 35%;
+	}
+@media screen and (max-width: 800px){
+	#mnB{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		text-align: center;
+	}
+		#mnB a{
+			padding: 0.5em 0;
+		}
+	.flA,.flxB{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+		.flA article,.flxB figure{
+			margin: 1em auto;
+			width: 90%;
+		}
+}
