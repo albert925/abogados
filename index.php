@@ -9,7 +9,7 @@
 	<meta name="description" content="somos una empresa en el sector inmobiliario de la ciudad de Cúcuta y su área metropolitana. 
 	El servicio al cliente interno será una responsabilidad incorporada en todos los miembros de la organización." />
 	<meta name="keywords" content="Abogados, noticias, denuncias, casos" />
-	<title>Vargas Nossa y Asosciados</title>
+	<title>Vargas Nossa y Asociados</title>
 	<link rel="icon" href="imagenes/icon.png" />
 	<link rel="image_src" href="imagenes/logo.png" />
 	<link rel="stylesheet" href="css/normalize.css" />
@@ -181,7 +181,9 @@
 				<input type="email" id="corct" required placeholder="E-mail" />
 				<textarea rows="4" id="txct" required placeholder="Mensaje"></textarea>
 				<div id="txsj"></div>
-				<input type="submit" value="Enviar" id="nvcas" />
+				<div class="lefsub">
+					<input type="submit" value="Enviar" id="nvcas" />
+				</div>
 			</form>
 		</article>
 		<article>
@@ -203,10 +205,19 @@
 					583 0897/98 - 573 0190 - 571 22 62
 				</div>
 				<div><span class="icon-mail"></span> contacto@vargasnossaabogados.com</div>
+				<div id="redes">
+					<a href="" target="_blank"><span class="icon-facebook3"></span></a>
+					<a href="" target="_blank"><span class="icon-twitter3"></span></a>
+					<a href="" target="_blank"><span class="icon-instagram-with-circle"></span></a>
+				</div>
 			</article>
 			<article id="mapagoogle">
 				<article id="map_canvas" class="mapas"></article>
 			</article>
+		</article>
+		<article class="fionfoot">
+			CONAXPORT © 2015 &nbsp;&nbsp;todos los derechos reservados &nbsp;- &nbsp;PBX (5) 841 733 &nbsp;&nbsp;Cúcuta - Colombia &nbsp;&nbsp;
+			<a href="http://conaxport.com/" target="_blank">www.conaxport.com</a>
 		</article>
 	</footer>
 	<script src="js/nivo_slider.js"></script>
