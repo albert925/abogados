@@ -5,6 +5,45 @@ body{
 	figure img{
 		width: 100%;
 	}
+footer{
+	background: #122545;
+	color: #D1CFD0;
+}
+	footer #titumap{color: #000;}
+	footer .fionfoot{
+		background: #08172C;
+		font-size: 12px;
+		padding: 0.5em 0;
+		text-align: center;
+	}
+		footer .fionfoot a{
+			color: #D1CFD0;
+			text-decoration: none;
+		}
+		footer .fionfoot a:hover{
+			text-decoration: underline;
+		}
+	footer .flexfoot{
+		display: flex;
+		-webkit-justify-content: space-around;
+		-ms-justify-content: space-around;
+		justify-content: space-around;
+		padding: 1em 0;
+	}
+		footer .flexfoot #contfo{
+			width: 40%;
+		}
+			footer .flexfoot #contfo div{
+				margin: 0.5em 0;
+			}
+			footer .flexfoot #contfo h4{color: #fff;}
+		footer .flexfoot #mapagoogle{
+			width: 40%;
+		}
+	footer .mapas{
+		border:1px solid #fff;
+		height: 20em;
+	}
 header{
 	display: flex;
 	-webkit-justify-content: space-between;
@@ -77,16 +116,27 @@ header{
 }
 .dossec{
 	background: #1d3960;
-	background: -moz-radial-gradient(center, ellipse cover,  #1d3960 0%, #122545 68%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1d3960), color-stop(68%,#122545));
-	background: -webkit-radial-gradient(center, ellipse cover,  #1d3960 0%,#122545 68%);
-	background: -o-radial-gradient(center, ellipse cover,  #1d3960 0%,#122545 68%);
-	background: -ms-radial-gradient(center, ellipse cover,  #1d3960 0%,#122545 68%);
 	background: radial-gradient(ellipse at center,  #1d3960 0%,#122545 68%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3960', endColorstr='#122545',GradientType=1 );
 	color: #E0DAE8;
 	padding: 3em 0;
 }
+.columninput{
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	text-align: center;
+}
+	.columninput input,.columninput select{
+		text-align: center;
+	}
+	.columninput input[type=submit]{
+		background: #0B203D;
+		color: #FEFFFF;
+	}
+	.columninput input[type=submit]:hover,.columninput input[type=submit]:active{
+		background: #1E375F;
+	}
 .flab{
 	display: flex;
 	-webkit-justify-content: space-between;
@@ -106,6 +156,35 @@ header{
 		border-radius: 100%;
 		height: 150px;
 		width: 150px;
+	}
+.flxcont{
+	display: flex;
+}
+	.flxcont article{
+		width: 50%;
+	}
+		.flxcont article h2{
+			color: #A1A1A1;
+			font-size: 55px;
+			margin-left: 1em;
+			text-transform: uppercase;
+			text-shadow: 2px 0 3px #000;
+		}
+			.flxcont article form input{
+				padding: 0.5em
+			}
+			.flxcont article form input,.flxcont article form textarea{
+				background: rgba(255,255,255,0.1);
+				border: 0;
+				color: #fff;
+				margin: 0.5em 0;
+				text-align: left;
+			}
+	.flxcont input[type=submit]{
+		box-shadow: 0 0 5px rgba(255,255,255,0.2);
+	}
+	.flxcont .lefsub{
+		text-align: left;
 	}
 .frases{
 	padding: 3em 0;
