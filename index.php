@@ -206,9 +206,9 @@
 				</div>
 				<div><span class="icon-mail"></span> contacto@vargasnossaabogados.com</div>
 				<div id="redes">
-					<a href="" target="_blank"><span class="icon-facebook3"></span></a>
-					<a href="" target="_blank"><span class="icon-twitter3"></span></a>
-					<a href="" target="_blank"><span class="icon-instagram-with-circle"></span></a>
+					<a href="" target="_blank"><span class="icon-facebook"></span></span></a>
+					<a href="" target="_blank"><span class="icon-twitter"></span></a>
+					<a href="" target="_blank"><span class="icon-instagram"></span></a>
 				</div>
 			</article>
 			<article id="mapagoogle">
