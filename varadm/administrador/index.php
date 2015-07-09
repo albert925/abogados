@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="../../css/normalize.css" />
 	<link rel="stylesheet" href="../../css/iconos/style.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
+		<link rel="stylesheet" href="../../css/styadmin.css" />
 	<script src="../../js/jquery_2_1_1.js"></script>
 	<script src="../../js/scripag.js"></script>
 	<script src="../../js/adm.js"></script>
@@ -63,8 +64,25 @@
 		<div id="mn_mv"><span class="icon-menu"></span></div>
 	</article>
 	<section class="marsec">
-		<article id="automargen">
-			<h1>Datos de ingreso <?php echo "$usad"; ?></h1>
+		<h1>Datos de ingreso <?php echo "$usad"; ?></h1>
+		<article class="flA">
+			<article class="columninput">
+				<h2>Modifcar Usuario</h2>
+				<input type="text" id="fus" value="<?php echo $usad ?>" required />
+				<div id="txB"></div>
+				<input type="submit" value="Modificar" id="mofA" data-adm="<?php echo $idad ?>" />
+			</article>
+			<article class="columninput">
+				<h2>Cambiar Contraseña</h2>
+				<label>*<b>Contraseña actual</b></label>
+				<input type="password" id="psac" />
+				<label>*<b>Contrseña nueva</b></label>
+				<input type="password" id="psnva" />
+				<label>*<b>Repite la contraseña nueva</b></label>
+				<input type="password" id="psnvb" />
+				<div id="txC"></div>
+				<input type="submit" value="Modificar" id="mofB" data-adm="<?php echo $idad ?>" />
+			</article>
 		</article>
 	</section>
 	<footer>
