@@ -103,3 +103,9 @@ Supports Thumbs: true
 	width: 120px;
 	height: auto;
 }
+@media screen and (max-width: 800px){
+	.theme-default .nivo-caption h2{
+		margin: 0;
+		font-size: 16px;
+	}
+}
