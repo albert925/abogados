@@ -1,43 +1,45 @@
 <?php
-	include '../config.php';
+	include '../../config.php';
+	session_start();
+	if (isset($_SESSION['adm'])) {
+		$residad=$_SESSION['adm'];
+		$datadmin="SELECT * from administrador where id_adm=$residad";
+		$sql_admin=mysql_query($datadmin,$conexion) or die (mysql_error());
+		while ($ad=mysql_fetch_array($sql_admin)) {
+			$idad=$ad['id_adm'];
+			$usad=$ad['user_adm'];
+			$tpad=$ad['tp_adm'];
+		}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, maximun-scale=1" />
-	<meta name="description" content="Ingreso para administrar el sitio web" />
-	<meta name="keywords" content="Actualizar e ingresar" />
-	<title>Ingreso administrador|Vargas Nossa y Asociados</title>
-	<link rel="icon" href="../imagenes/icon.png" />
-	<link rel="image_src" href="../imagenes/logo.png" />
-	<link rel="stylesheet" href="../css/normalize.css" />
-	<link rel="stylesheet" href="../css/iconos/style.css" />
-	<link rel="stylesheet" href="../css/style.css" />
-	<script src="../js/jquery_2_1_1.js"></script>
-	<script src="../js/scripag.js"></script>
-	<script src="../js/adm.js"></script>
-	<script type="application/ld+json">
-		{
-		  "@context" : "http://schema.org",
-		  "@type" : "LocalBusiness",
-		  "name" : "Ingreso administrador|Vargas Nossa y Asosciados",
-		  "image" : "url"
-		}
-	</script>
+	<meta name="description" content="Datos de <?php echo $usad ?>" />
+	<meta name="keywords" content="Actualizar datos administradorr" />
+	<title>Administrador <?php echo "$usad"; ?>|Vargas Nossa y Asociados</title>
+	<link rel="icon" href="../../imagenes/icon.png" />
+	<link rel="image_src" href="../../imagenes/logo.png" />
+	<link rel="stylesheet" href="../../css/normalize.css" />
+	<link rel="stylesheet" href="../../css/iconos/style.css" />
+	<link rel="stylesheet" href="../../css/style.css" />
+	<script src="../../js/jquery_2_1_1.js"></script>
+	<script src="../../js/scripag.js"></script>
+	<script src="../../js/adm.js"></script>
 </head>
 <body>
 	<header id="automargen">
 		<article id="verlogo">
 			<figure id="logo">
-				<a href="../">
-					<img src="../imagenes/logo.png" alt="logo" />
+				<a href="">
+					<img src="../../imagenes/logo.png" alt="logo" />
 				</a>
 			</figure>
 		</article>
 		<article id="minmyred">
 			<article id="spanmm">
-				<a href="../registro">usuario</a>
+				<a href=""><?php echo "$usad"; ?></a>
 				<span>contacto@vargasnossa.com</span>
 				<span>(+57)5 72 0821</span>
 			</article>
@@ -50,24 +52,19 @@
 	</header>
 	<article id="automargen" class="menuP">
 		<nav id="mnP">
-			<a href="../">Inicio</a>
-			<a href="../portafolio">Portafolio de Servicios</a>
-			<a href="../nosotros">Quienes Somos</a>
-			<a href="../contacto">Contacto</a>
+			<a href="galeria">Imagenes I.</a>
+			<a href="noticias">Noticias</a>
+			<a href="abogados">Abogados</a>
+			<a href="frases">Frases</a>
+			<a href="portafolio">Portafolio</a>
+			<a href=""><?php echo "$usad"; ?></a>
+			<a href="../../cerrar">Salir</a>
 		</nav>
 		<div id="mn_mv"><span class="icon-menu"></span></div>
 	</article>
 	<section class="marsec">
 		<article id="automargen">
-			<h1>Ingreso Administrador</h1>
-			<form action="#" method="post" class="columninput">
-				<label for="usadm"><b>Usuario</b></label>
-				<input type="tex" id="usadm" required />
-				<label for="psadm"><b>Contraseña</b></label>
-				<input type="password" id="psadm" required />
-				<div id="txA"></div>
-				<input type="submit" value="Ingresar" id="ingadus" />
-			</form>
+			<h1>Datos de ingreso <?php echo "$usad"; ?></h1>
 		</article>
 	</section>
 	<footer>
@@ -101,6 +98,15 @@
 		</article>
 	</footer>
 	<script src="http://www.google.com/jsapi"></script>
-	<script src="../js/colmapa.js"></script>
+	<script src="../../js/colmapa.js"></script>
 </body>
 </html>
+<?php
+	}
+	else{
+		echo "<script type='text/javascript'>";
+			echo "var pagina='../erroradm.html';";
+			echo "document.location.href=pagina;";
+		echo "</script>";
+	}
+?>
