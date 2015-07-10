@@ -44,7 +44,7 @@ h1,h2{
 	-ms-justify-content: space-around;
 	justify-content: space-around;
 }
-.flxB{
+.flxB,.flxC{
 	display: flex;
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
@@ -54,6 +54,10 @@ h1,h2{
 	.flxB figure{
 		margin-bottom: 1em;
 		width: 35%;
+	}
+	.flxC figure{
+		margin-bottom: 1em;
+		width: 15%;
 	}
 @media screen and (max-width: 800px){
 	#mnB{
@@ -65,12 +69,12 @@ h1,h2{
 		#mnB a{
 			padding: 0.5em 0;
 		}
-	.flA,.flxB{
+	.flA,.flxB,.flxC{
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-		.flA article,.flxB figure{
+		.flA article,.flxB figure,.flxC figure{
 			margin: 1em auto;
 			width: 90%;
 		}
