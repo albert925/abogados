@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2015 a las 01:03:15
+-- Tiempo de generación: 10-07-2015 a las 22:42:57
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -32,7 +32,14 @@ CREATE TABLE IF NOT EXISTS `abogad` (
   `avat_ab` varchar(455) COLLATE utf8_spanish_ci NOT NULL,
   `res_ab` text COLLATE utf8_spanish_ci NOT NULL,
   `txt_ab` text COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `abogad`
+--
+
+INSERT INTO `abogad` (`id_ab`, `nam_ab`, `avat_ab`, `res_ab`, `txt_ab`) VALUES
+(2, 'Jhon Jairo Vargas Salazar', 'imagenes/abogados/avat_guia.jpg', 'PequeÃ±o resumen', '');
 
 -- --------------------------------------------------------
 
@@ -45,7 +52,14 @@ CREATE TABLE IF NOT EXISTS `administrador` (
   `user_adm` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `pass_adm` varchar(400) COLLATE utf8_spanish_ci NOT NULL,
   `tp_adm` varchar(10) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`id_adm`, `user_adm`, `pass_adm`, `tp_adm`) VALUES
+(1, 'admin', '40f7a8df1d7c89c522a1acc755cd081374795d02', '1');
 
 -- --------------------------------------------------------
 
@@ -106,8 +120,16 @@ CREATE TABLE IF NOT EXISTS `frases` (
 `id_fra` int(11) NOT NULL,
   `tit_fra` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `res_fra` text COLLATE utf8_spanish_ci NOT NULL,
-  `txt_fra` text COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `txt_fra` text COLLATE utf8_spanish_ci NOT NULL,
+  `fe_fra` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `frases`
+--
+
+INSERT INTO `frases` (`id_fra`, `tit_fra`, `res_fra`, `txt_fra`, `fe_fra`) VALUES
+(2, 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', '<p>eiusmod tempor incididunt ut labore et d<span style="color:#800080">olore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iru</span></p>\r\n', '2015-07-10');
 
 -- --------------------------------------------------------
 
@@ -120,7 +142,15 @@ CREATE TABLE IF NOT EXISTS `galery` (
   `rut_gal` varchar(455) COLLATE utf8_spanish_ci NOT NULL,
   `lk_gal` varchar(455) COLLATE utf8_spanish_ci NOT NULL,
   `txt_gal` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `galery`
+--
+
+INSERT INTO `galery` (`id_gal`, `rut_gal`, `lk_gal`, `txt_gal`) VALUES
+(3, 'imagenes/galery/fondo_1170_570.jpg', '', ''),
+(4, 'imagenes/galery/fox_1170_570.jpg', '', 'Esto es un mensaje de texto');
 
 -- --------------------------------------------------------
 
@@ -1266,7 +1296,33 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `res_nt` text COLLATE utf8_spanish_ci NOT NULL,
   `tx_nt` text COLLATE utf8_spanish_ci NOT NULL,
   `fe_nt` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `noticias`
+--
+
+INSERT INTO `noticias` (`id_nt`, `tit_nt`, `tp_id`, `rut_nt`, `res_nt`, `tx_nt`, `fe_nt`) VALUES
+(2, 'noticia1', 1, 'imagenes/noticias/VN_web.jpg', 'sdfsd', '', '2015-07-10');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `portafolio`
+--
+
+CREATE TABLE IF NOT EXISTS `portafolio` (
+`id_pft` int(11) NOT NULL,
+  `text_pft` text COLLATE utf8_spanish_ci NOT NULL,
+  `fe_pft` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `portafolio`
+--
+
+INSERT INTO `portafolio` (`id_pft`, `text_pft`, `fe_pft`) VALUES
+(1, '<p>asd<span style="color:#2F4F4F">sad</span></p>\r\n', '2015-07-10');
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1333,15 @@ CREATE TABLE IF NOT EXISTS `noticias` (
 CREATE TABLE IF NOT EXISTS `tipo_noticia` (
 `id_tp` int(11) NOT NULL,
   `nam_tp` varchar(255) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tipo_noticia`
+--
+
+INSERT INTO `tipo_noticia` (`id_tp`, `nam_tp`) VALUES
+(1, 'tipo1'),
+(3, 'tipo2');
 
 -- --------------------------------------------------------
 
@@ -1351,6 +1415,12 @@ ALTER TABLE `noticias`
  ADD PRIMARY KEY (`id_nt`), ADD KEY `tp_id` (`tp_id`);
 
 --
+-- Indices de la tabla `portafolio`
+--
+ALTER TABLE `portafolio`
+ ADD PRIMARY KEY (`id_pft`);
+
+--
 -- Indices de la tabla `tipo_noticia`
 --
 ALTER TABLE `tipo_noticia`
@@ -1370,12 +1440,12 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `abogad`
 --
 ALTER TABLE `abogad`
-MODIFY `id_ab` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_ab` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
 --
@@ -1385,12 +1455,12 @@ MODIFY `id_depart` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 -- AUTO_INCREMENT de la tabla `frases`
 --
 ALTER TABLE `frases`
-MODIFY `id_fra` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_fra` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `galery`
 --
 ALTER TABLE `galery`
-MODIFY `id_gal` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_gal` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `municipios`
 --
@@ -1400,12 +1470,17 @@ MODIFY `id_municipio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1113;
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-MODIFY `id_nt` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_nt` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `portafolio`
+--
+ALTER TABLE `portafolio`
+MODIFY `id_pft` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `tipo_noticia`
 --
 ALTER TABLE `tipo_noticia`
-MODIFY `id_tp` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_tp` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
