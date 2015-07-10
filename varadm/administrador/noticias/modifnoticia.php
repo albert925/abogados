@@ -10,15 +10,39 @@
 			$usad=$ad['user_adm'];
 			$tpad=$ad['tp_adm'];
 		}
+		$idR=$_GET['nt'];
+		if ($idR=="") {
+			echo "<script type='text/javascript'>";
+				echo "alert('id no ticia no disponible');";
+				echo "var pagina='../noticias';";
+				echo "document.location.href=pagina;";
+			echo "</script>";
+		}
+		else{
+			$datos="SELECT * from noticias 
+					inner join tipo_noticia on(noticias.tp_id=tipo_noticia.id_tp) 
+				where id_nt=$idR";
+			$sql_datos=mysql_query($datos,$conexion) or die (mysql_error());
+			$numdatos=mysql_num_rows($sql_datos);
+			if ($numdatos>0) {
+				while ($dt=mysql_fetch_array($sql_datos)) {
+					$nmnt=$dt['tit_nt'];
+					$tpnt=$dt['tp_id'];
+					$rtnt=$dt['rut_nt'];
+					$rsnt=$dt['res_nt'];
+					$txnt=$dt['tx_nt'];
+					$fent=$dt['fe_nt'];
+					$tipnam=$dt['nam_tp'];
+				}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, maximun-scale=1" />
-	<meta name="description" content="Galeria de imagenes" />
-	<meta name="keywords" content="Ingresar y elminar iamgenes" />
-	<title>Administrar Noticias|Vargas Nossa y Asociados</title>
+	<meta name="description" content="Datos de <?php echo $nmnt ?>" />
+	<meta name="keywords" content="Modificar Noticia" />
+	<title><?php echo "$nmnt"; ?>|Vargas Nossa y Asociados</title>
 	<link rel="icon" href="../../../imagenes/icon.png" />
 	<link rel="image_src" href="../../../imagenes/logo.png" />
 	<link rel="stylesheet" href="../../../css/normalize.css" />
@@ -66,16 +90,29 @@
 		<div id="mn_mv"><span class="icon-menu"></span></div>
 	</article>
 	<nav id="mnB">
-		<a id="btB" href="#">Nueva noticia</a>
+		<a href="../noticias">Ver noticias</a>
 		<a href="tipo_noticia.php">Tipos de noticias</a>
 	</nav>
 	<section class="marsec">
-		<h1>Noticias</h1>
+		<h1><?php echo "$nmnt"; ?></h1>
 		<article id="automargen">
-			<article id="cjB" class="cjaing">
-				<form action="../../../new_noticia.php" method="post" enctype="multipart/form-data" class="columninput">
+			<h2>Modificar imagen</h2>
+			<article>
+				<form action="#" method="post" enctype="multipart/form-data" id="mfimgnt" class="columninput">
+					<input type="text" id="idfnt" name="idfnt" value="<?php echo $idR ?>" required style="display:none;" />
+					<label><a href="../../../<?php echo $rtnt ?>" target="_blank"><?php echo "$rtnt"; ?></a></label>
+					<label for="gmntf"><b>Imagen (resolución 330x270)</b></label>
+					<input type="file" id="gmntf" name="gmntf" required />
+					<div id="txD"></div>
+					<input type="submit" value="Modificar" id="mfimagnt" />
+				</form>
+			</article>
+			<h2>Modificar datos</h2>
+			<article>
+				<form action="modifc_noticia.php" method="post" class="columninput">
+					<input type="text" id="idfntCc" name="idfntCc" value="<?php echo $idR ?>" required style="display:none;" />
 					<label for="titnt">*<b>Titulo</b></label>
-					<input type="text" id="titnt" name="titnt" required />
+					<input type="text" id="titnt" name="titnt" value="<?php echo $nmnt ?>" required />
 					<label>*<b>Tipo de noticia</b></label>
 					<select id="tpnt" name="tpnt">
 						<option value="0">Selecione</option>
@@ -85,88 +122,29 @@
 							while ($tpS=mysql_fetch_array($sql_tp)) {
 								$idtp=$tpS['id_tp'];
 								$nmtp=$tpS['nam_tp'];
+								if ($idtp==$tpnt) {
+									$seltipo="selected";
+								}
+								else{
+									$seltipo="";
+								}
 						?>
-						<option value="<?php echo $idtp ?>"><?php echo "$nmtp"; ?></option>
+						<option value="<?php echo $idtp ?>" <?php echo $seltipo ?>><?php echo "$nmtp"; ?></option>
 						<?php
 							}
 						?>
 					</select>
-					<label>*<b>Imagen Principal (resolución 330x270)</b></label>
-					<input type="file" id="ntimg" name="ntimg" required />
 					<label>*<b>Resumen</b></label>
-					<textarea id="restx" name="resnt" required></textarea>
+					<textarea id="restx" name="resnt" required><?php echo "$rsnt"; ?></textarea>
 					<label><b>Texto</b></label>
-					<textarea id="editor1" name="txtnt"></textarea>
+					<textarea id="editor1" name="txtnt"><?php echo "$txnt"; ?></textarea>
 					<script>
 						CKEDITOR.replace('txtnt');
 					</script>
 					<div id="txA"></div>
-					<input type="submit" value="Ingresar" id="valnot" />
+					<input type="submit" value="Modificar" id="valnot" />
 				</form>
 			</article>
-		</article>
-		<article id="automargen" class="flxB">
-			<?php
-				error_reporting(E_ALL ^ E_NOTICE);
-				$tamno_pagina=15;
-				$pagina= $_GET['pagina'];
-				if (!$pagina) {
-					$inicio=0;
-					$pagina=1;
-				}
-				else{
-					$inicio= ($pagina - 1)*$tamno_pagina;
-				}
-				$ssql="SELECT * from noticias order by id_nt desc";
-				$rs=mysql_query($ssql,$conexion) or die (mysql_error());
-				$num_total_registros= mysql_num_rows($rs);
-				$total_paginas= ceil($num_total_registros / $tamno_pagina);
-				$gsql="SELECT * from noticias order by id_nt desc limit $inicio, $tamno_pagina";
-				$impsql=mysql_query($gsql,$conexion) or die (mysql_error());
-				while ($gh=mysql_fetch_array($impsql)) {
-					$idnt=$gh['id_nt'];
-					$nmnt=$gh['tit_nt'];
-					$tpnt=$gh['tp_id'];
-					$rtnt=$gh['rut_nt'];
-					$rsnt=$gh['res_nt'];
-					$txnt=$gh['tx_nt'];
-					$fent=$gh['fe_nt'];
-			?>
-			<figure>
-				<h2><?php echo "$nmnt"; ?></h2>
-				<img src="../../../<?php echo $rtnt ?>" alt="imange_<?php echo $idr ?>_<?php echo $idnt ?>" />
-				<figcaption class="columninput">
-					<a id="disbyn" href="modifnoticia.php?nt=<?php echo $idnt ?>">Modificar</a>
-					<a class="dell" href="borrinoticia.php?br=<?php echo $idnt ?>">Borrar</a>
-				</figcaption>
-			</figure>
-			<?php
-				}
-			?>
-		</article>
-		<article id="automargen">
-			<br />
-			<b>Páginas: </b>
-			<?php
-				//muestro los distintos indices de las paginas
-				if ($total_paginas>1) {
-					for ($i=1; $i <=$total_paginas ; $i++) { 
-						if ($pagina==$i) {
-							//si muestro el indice del la pagina actual, no coloco enlace
-				?>
-					<b><?php echo $pagina." "; ?></b>
-				<?php
-						}
-						else{
-							//si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página 
-				?>
-							<a href="index.php?pagina=<?php echo $i ?>"><?php echo "$i"; ?></a>
-
-				<?php
-						}
-					}
-				}
-			?>
 		</article>
 	</section>
 	<footer>
@@ -204,6 +182,15 @@
 </body>
 </html>
 <?php
+			}
+			else{
+				echo "<script type='text/javascript'>";
+					echo "alert('noticia no existe');";
+					echo "var pagina='../noticias';";
+					echo "document.location.href=pagina;";
+				echo "</script>";
+			}
+		}
 	}
 	else{
 		echo "<script type='text/javascript'>";
