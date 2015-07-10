@@ -1,5 +1,18 @@
 <?php
 	include 'config.php';
+	function tomarultidnot($dato,$serv)
+	{
+		$PrimerNT="SELECT * from noticias where tp_id=$dato order by id_nt desc limit 1";
+		$sqlprnt=mysql_query($PrimerNT,$serv) or die (mysql_error());
+		while ($unt=mysql_fetch_array($sqlprnt)) {
+			$uidnt=$unt['id_nt'];
+		}
+		return $uidnt;
+	}
+	$mH=date("m");
+	$yH=date("Y");
+	$fe_in=$yH."-".$mH."-01";
+	$fe_fn=$yH."-".$mH."-31";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -67,110 +80,131 @@
 			<article id="textowl">
 				<div class="slider-wrapper theme-default">
 					<div id="slider" class="nivoSlider">
-						<img src="imagenes/galery/fondo.jpg" alt="imagen" title="#caption1" />
+						<?php
+							$galery="SELECT * from galery order by id_gal asc";
+							$sql_gal=mysql_query($galery,$conexion) or die (mysql_error());
+							while ($gy=mysql_fetch_array($sql_gal)) {
+								$idgal=$gy['id_gal'];
+								$rtgal=$gy['rut_gal'];
+						?>
+						<img src="<?php echo $rtgal ?>" alt="imagen_<?php echo $idgal ?>" title="#caption<?php echo $idgal ?>" />
+						<?php
+							}
+						?>
 					</div>
-					<div div id="caption1" style="display: none;">
-						<h2>Tienes una idea para tu empresa</h2>
+					<?php
+						$capp="SELECT * from galery order by id_gal asc";
+						$sqlcapp=mysql_query($capp,$conexion) or die (mysql_error());
+						while ($cp=mysql_fetch_array($sqlcapp)) {
+							$idcp=$cp['id_gal'];
+							$txcp=$cp['txt_gal'];
+					?>
+					<div id="caption<?php echo $idcp ?>" style="display:none;">
+						<h2><?php echo "$txcp"; ?></h2>
 					</div>
+					<?php
+						}
+					?>
 				</div>
 			</article>
 			<nav>
-				<a href="#zero">Casos Recientes</a>
-				<a href="#dos">En proceso</a>
-				<a href="">Articulo de Interés</a>
+				<?php
+					$Ttp="SELECT * from tipo_noticia order by nam_tp asc";
+					$sql_ttp=mysql_query($Ttp,$conexion) or die (mysql_error());
+					while ($tp=mysql_fetch_array($sql_ttp)) {
+						$idtp=$tp['id_tp'];
+						$nmtp=$tp['nam_tp'];
+						$ntid=tomarultidnot($idtp,$conexion);
+				?>
+				<a href="#vetp<?php echo $idtp ?>_<?php echo $ntid ?>"><?php echo "$nmtp"; ?></a>
+				<?php
+					}
+				?>
 			</nav>
 			<article class="noticiasR">
 				<article class="owl-carousel owl-theme owl-loaded">
+					<?php
+						$NT="SELECT * from noticias 
+							where fe_nt>='$fe_in' and fe_nt<='$fe_fn'	order by tp_id asc,id_nt desc";
+						$sqlNT=mysql_query($NT,$conexion) or die (mysql_error());
+						while ($tn=mysql_fetch_array($sqlNT)) {
+							$idnt=$tn['id_nt'];
+							$nmnt=$tn['tit_nt'];
+							$tpnt=$tn['tp_id'];
+							$rtnt=$tn['rut_nt'];
+							$rsnt=$tn['res_nt'];
+							$txnt=$tn['tx_nt'];
+							$fent=$tn['fe_nt'];
+					?>
 					<div class="item">
-						<figure class="notitem" data-hash="zero">
-							<img src="imagenes/noticias/VN_web.jpg" alt="imagen" />
+						<figure class="notitem" data-hash="vetp<?php echo $tpnt ?>_<?php echo $idnt ?>">
+							<a href="noticia.php?nt=<?php echo $idnt ?>">
+								<img src="<?php echo $rtnt ?>" alt="<?php echo $nmnt ?>" />
+							</a>
 							<figcaption>
-								<h4>Titulo</h4>
+								<h4><?php echo "$nmnt"; ?></h4>
 								<div>
-									Pequeña descripción
+									<?php echo "$rsnt"; ?>
 								</div>
 							</figcaption>
 						</figure>
 					</div>
-					<div class="item">
-						<figure class="notitem">
-							<img src="imagenes/noticias/VN_web.jpg" alt="imagen" />
-							<figcaption>
-								<h4>Titulo</h4>
-								<div>
-									Pequeña descripción
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-					<div class="item">
-						<figure class="notitem">
-							<img src="imagenes/noticias/VN_web.jpg" alt="imagen" />
-							<figcaption>
-								<h4>Titulo</h4>
-								<div>
-									Pequeña descripción
-								</div>
-							</figcaption>
-						</figure>
-					</div>
-					<div class="item">
-						<figure class="notitem" data-hash="dos">
-							<img src="imagenes/noticias/VN_web.jpg" alt="imagen" />
-							<figcaption>
-								<h4>Titulo</h4>
-								<div>
-									Pequeña descripción
-								</div>
-							</figcaption>
-						</figure>
-					</div>
+					<?php
+						}
+					?>
 				</article>
 			</article>
 		</article>
 	</section>
 	<section class="dossec">
 		<article id="automargen" class="flab">
+			<?php
+				$Tdab="SELECT * from abogad order by id_ab desc limit 3";
+				$sql_aboga=mysql_query($Tdab,$conexion) or die (mysql_error());
+				while ($bo=mysql_fetch_array($sql_aboga)) {
+					$idbo=$bo['id_ab'];
+					$nmbo=$bo['nam_ab'];
+					$rtbo=$bo['avat_ab'];
+					$rsbo=$bo['res_ab'];
+					$txbo=$bo['txt_ab'];
+			?>
 			<article>
-				<figure style="background-image:url(imagenes/fondo.jpg);"></figure>
+				<figure style="background-image:url(<?php echo $rtbo ?>);"></figure>
 				<figcaption>
-					<h3>Nombre</h3>
+					<h3><?php echo "$nmbo"; ?></h3>
 					<article>
-						Texto
+						<?php echo "$rsbo"; ?>
 					</article>
 				</figcaption>
 			</article>
+			<?php
+				}
+			?>
 		</article>
 	</section>
 	<section class="frases">
 		<article id="automargen">
 			<article class="owl-carousel-b owl-theme owl-loaded">
+				<?php
+					$Todfras="SELECT * from frases order by id_fra desc limit 10";
+					$sql_fras=mysql_query($Todfras,$conexion) or die (mysql_error());
+					while ($ff=mysql_fetch_array($sql_fras)) {
+						$idF=$ff['id_fra'];
+						$nmF=$ff['tit_fra'];
+						$rsF=$ff['res_fra'];
+						$txF=$ff['txt_fra'];
+				?>
 				<div class="item">
 					<article class="fraitem">
-						<h2>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h2>
+						<h2><?php echo "$nmF"; ?></h2>
 						<p>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-							commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
+							<?php echo "$rsF"; ?>
 						</p>
 					</article>
 				</div>
-				<div class="item">
-					<article class="fraitem">
-						<h2>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</h2>
-						<p>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
-							commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-							sunt in culpa qui officia deserunt mollit anim id est laborum."
-						</p>
-					</article>
-				</div>
+				<?php
+					}
+				?>
 			</article>
 		</article>
 	</section>

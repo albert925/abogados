@@ -46,6 +46,9 @@ h1,h2{
 }
 .flxB,.flxC{
 	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
 	justify-content: space-between;
@@ -53,7 +56,7 @@ h1,h2{
 }
 	.flxB figure{
 		margin-bottom: 1em;
-		width: 35%;
+		width: 30%;
 	}
 	.flxC figure{
 		margin-bottom: 1em;
