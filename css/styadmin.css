@@ -1,6 +1,15 @@
 h1,h2{
 	text-align: center;
 }
+#disbyn{
+	background: #254D81;
+	color: #fff;
+	padding: 0.5em 0;
+	text-decoration: none;
+}
+#disbyn:hover,#disbyn:active{
+	background: #122545;
+}
 #mnB{
 	display: flex;
 	-webkit-justify-content: space-around;
