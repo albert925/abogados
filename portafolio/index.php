@@ -55,7 +55,7 @@
 	<article id="automargen" class="menuP">
 		<nav id="mnP">
 			<a href="../">Inicio</a>
-			<a href="../portafolio">Portafolio de Servicios</a>
+			<a class="sel" href="../portafolio">Portafolio de Servicios</a>
 			<a href="../nosotros">Quienes Somos</a>
 			<a href="../contacto">Contacto</a>
 		</nav>
