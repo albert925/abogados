@@ -59,6 +59,13 @@ h1,h2{
 		margin-bottom: 1em;
 		width: 15%;
 	}
+.htilf{
+	-webkit-word-break: wrap;
+	-ms-word-break: wrap;
+	-moz-word-break: wrap;
+	word-break: wrap;
+	width: 25%;
+}
 @media screen and (max-width: 800px){
 	#mnB{
 		-webkit-flex-direction: column;
@@ -74,7 +81,7 @@ h1,h2{
 		-ms-flex-direction: column;
 		flex-direction: column;
 	}
-		.flA article,.flxB figure,.flxC figure{
+		.flA article,.flxB figure,.flxC figure,.htilf{
 			margin: 1em auto;
 			width: 90%;
 		}
