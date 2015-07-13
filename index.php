@@ -35,6 +35,7 @@
 	<script src="js/jquery_2_1_1.js"></script>
 	<script src="js/owl_carousel_min.js"></script>
 	<script src="js/scripag.js"></script>
+	<script src="js/cuencass.js"></script>
 	<script type="application/ld+json">
 		{
 		  "@context" : "http://schema.org",
