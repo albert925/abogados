@@ -3,16 +3,30 @@ h1{
 }
 #imgnt{
 	margin: 0 auto;
-	width: 50%;
+	width: 15%;
 }
 .fecha{
 	font-size: 12px;
 	font-style: italic;
 	padding:1em;
 }
+.flxnot{
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
+}
+	.flxnot article{
+		width: 80%;
+	}
 @media screen and (max-width: 800px){
-	#imgnt{
+	#imgnt,.flxnot article,#imgnt{
 		margin: 1em auto;
 		width: 90%;
+	}
+	.flxnot{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
 	}
 }

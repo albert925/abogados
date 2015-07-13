@@ -79,11 +79,13 @@
 	<section>
 		<article id="automargen">
 			<h1><?php echo "$nmab"; ?></h1>
-			<figure id="imgnt">
-				<img src="<?php echo $rtab ?>" alt="<?php echo $nmab ?>" />
-			</figure>
-			<article>
-				<?php echo "$txab"; ?>
+			<article class="flxnot">
+				<figure id="imgnt">
+					<img src="<?php echo $rtab ?>" alt="<?php echo $nmab ?>" />
+				</figure>
+				<article>
+					<?php echo "$txab"; ?>
+				</article>
 			</article>
 		</article>
 	</section>

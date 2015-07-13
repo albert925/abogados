@@ -82,11 +82,13 @@
 	<section>
 		<article id="automargen">
 			<h1><?php echo "$nmnt"; ?></h1>
-			<figure id="imgnt">
-				<img src="<?php echo $rtnt ?>" alt="<?php echo $nmnt ?>" />
-			</figure>
-			<article>
-				<?php echo "$txnt"; ?>
+			<article class="flxnot">
+				<figure id="imgnt">
+					<img src="<?php echo $rtnt ?>" alt="<?php echo $nmnt ?>" />
+				</figure>
+				<article>
+					<?php echo "$txnt"; ?>
+				</article>
 			</article>
 			<div class="fecha"><?php echo fechatraducearray($fent); ?></div>
 		</article>
