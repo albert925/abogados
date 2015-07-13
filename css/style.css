@@ -170,6 +170,8 @@ header{
 		}
 	.flab figcaption{
 		text-align: center;
+		margin: 0 auto;
+		width: 90%;
 	}
 	.flab figure{
 		background-repeat: no-repeat;
