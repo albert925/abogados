@@ -5,6 +5,7 @@ function inicio_pagina () {
 		$(window).scroll(mostrarmov);
 	}
 	$("#mn_mv").on("click",abrir_menu);
+	$("#lkabog").on("click",ver_descabo);
 }
 function abrir_menu () {
 	if (contador==1) {
@@ -24,4 +25,8 @@ function mostrarmov () {
 	else{
 		$(".menuP").css({position:"relative"});
 	}
+}
+function ver_descabo () {
+	var delud=$(this).attr("data-id");
+	window.location.href="abogado.php?bo="+delud;
 }

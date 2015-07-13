@@ -176,9 +176,13 @@ header{
 		background-position: center;
 		background-size: cover;
 		border-radius: 100%;
+		cursor: pointer;
 		height: 150px;
 		margin: 0 auto;
 		width: 150px;
+	}
+	.flab figure:hover,.flab figure:active{
+		transform: scale(1.1);
 	}
 .flxcont{
 	display: flex;

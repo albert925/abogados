@@ -169,7 +169,7 @@
 					$txbo=$bo['txt_ab'];
 			?>
 			<article>
-				<figure style="background-image:url(<?php echo $rtbo ?>);"></figure>
+				<figure id="lkabog" data-id="<?php echo $idbo ?>" style="background-image:url(<?php echo $rtbo ?>);"></figure>
 				<figcaption>
 					<h3><?php echo "$nmbo"; ?></h3>
 					<article>
