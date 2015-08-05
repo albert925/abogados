@@ -1,6 +1,15 @@
 h1,h2{
 	text-align: center;
 }
+input[type=number]{
+	margin: 0 auto;
+	width: 90%;
+}
+table{
+	margin: 1em auto;
+	text-align: center;
+}
+	table td{padding: 0.25em;}
 #disbyn{
 	background: #254D81;
 	color: #fff;
@@ -25,6 +34,23 @@ h1,h2{
 	#mnB a:hover,#mnB a:active{
 		background: #254D81;
 	}
+#resulNombres{
+	display: none;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	text-align: center;
+}
+	#resulNombres a{
+		background: #EAEAEA;
+		border-bottom: 1px solid #002458;
+		color: #000;
+		padding: 0.5em 0;
+		text-decoration: none;
+	}
+		#resulNombres a:hover{
+			background: #E1E1E1;
+		}
 .cjaing{
 	height: 0;
 	overflow: hidden;
@@ -37,6 +63,12 @@ h1,h2{
 .dell:hover,.dell:active{
 	background: #254D81;
 	color: #fff;
+}
+.filflx{
+	display: flex;
+	-webkit-justify-content: space-between;
+	-ms-justify-content: space-between;
+	justify-content: space-between;
 }
 .flA{
 	display: flex;
@@ -79,7 +111,7 @@ h1,h2{
 		#mnB a{
 			padding: 0.5em 0;
 		}
-	.flA,.flxB,.flxC{
+	.flA,.flxB,.flxCm,.filflx{
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
