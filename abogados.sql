@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-07-2015 a las 22:42:57
+-- Tiempo de generación: 05-08-2015 a las 22:18:41
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -60,6 +60,28 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 
 INSERT INTO `administrador` (`id_adm`, `user_adm`, `pass_adm`, `tp_adm`) VALUES
 (1, 'admin', '40f7a8df1d7c89c522a1acc755cd081374795d02', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `casos`
+--
+
+CREATE TABLE IF NOT EXISTS `casos` (
+`id_cas` int(11) NOT NULL,
+  `us_id` int(11) NOT NULL,
+  `tit_cas` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `text_cas` text COLLATE utf8_spanish_ci NOT NULL,
+  `es_cas` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `fe_cas` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `casos`
+--
+
+INSERT INTO `casos` (`id_cas`, `us_id`, `tit_cas`, `text_cas`, `es_cas`, `fe_cas`) VALUES
+(2, 3, 'titulo55', 'sadasdas', '3', '2015-08-05');
 
 -- --------------------------------------------------------
 
@@ -129,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `frases` (
 --
 
 INSERT INTO `frases` (`id_fra`, `tit_fra`, `res_fra`, `txt_fra`, `fe_fra`) VALUES
-(2, 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', '<p>eiusmod tempor incididunt ut labore et d<span style="color:#800080">olore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iru</span></p>\r\n', '2015-07-10');
+(2, 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."', '<p>eiusmod tempor incididunt ut labore et d<span style="color:#800080">olore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute iru</span></p>', '2015-07-10');
 
 -- --------------------------------------------------------
 
@@ -1296,14 +1318,17 @@ CREATE TABLE IF NOT EXISTS `noticias` (
   `res_nt` text COLLATE utf8_spanish_ci NOT NULL,
   `tx_nt` text COLLATE utf8_spanish_ci NOT NULL,
   `fe_nt` date NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `noticias`
 --
 
 INSERT INTO `noticias` (`id_nt`, `tit_nt`, `tp_id`, `rut_nt`, `res_nt`, `tx_nt`, `fe_nt`) VALUES
-(2, 'noticia1', 1, 'imagenes/noticias/VN_web.jpg', 'sdfsd', '', '2015-07-10');
+(2, 'noticia1', 1, 'imagenes/noticias/VN_web.jpg', 'sdfsd', '', '2015-07-10'),
+(3, 'noticia2', 1, 'imagenes/noticias/ju.jpg', 'red', '<p><strong>ue IFINORTE</strong> fue creado mediante la Ordenanza 010 de 1974, como un establecimiento p&uacute;blico del orden departamental, con autonom&iacute;a administrativa, patrimonio propio y personer&iacute;a jur&iacute;dica otorgada mediante Resoluci&oacute;n No. 068 del 13 de julio de 1977, por la Secretar&iacute;a de Gobierno del Departamento de Norte de Santander, as&iacute; como&nbsp; el Decreto 043 del 30 de enero de 1976, que reglamenta su funcionamiento.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Que el art&iacute;culo 2 de la Ordenanza 70BIS del 03 de diciembre de 1994, norma por medio de la cual se reformo el art&iacute;culo 3 de la Ordenanza 10 de 1974, determin&oacute; que dentro de los activos de la entidad se encuentra las acciones que&nbsp; el Departamento endos&oacute; a favor del Instituto.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Que de acuerdo a lo establecido en el Art&iacute;culo 60 de la Constituci&oacute;n Pol&iacute;tica de Colombia <em>&ldquo;El Estado promover&aacute;, de acuerdo con la ley, el acceso a la propiedad. </em><em>Cuando el Estado enajene su participaci&oacute;n en una empresa, tomar&aacute; las medidas conducentes a democratizar la titularidad de sus acciones, y ofrecer&aacute; a sus trabajadores, a las organizaciones solidarias y de trabajadores, condiciones especiales para acceder a dicha propiedad accionaria. La ley reglamentar&aacute; la materia&rdquo;</em></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Que conforme al an&aacute;lisis efectuado por la firma <strong>BRC INVESTOR SERVICE S.A</strong> de fecha 06 de marzo de 2012, el indicador de activos improductivos a noviembre de 2011 fue de 6.2%, lo que constituye un indicador negativo en la calificaci&oacute;n y recomienda la firma calificadora como un aspecto a mejorar en la calidad de los activos, vi&eacute;ndose afectada la situaci&oacute;n financiera de <strong>IFINORTE</strong> por los activos improductivos que posee y recomienda efectuar la venta de los mismos</p>\r\n', '2015-07-10'),
+(4, 'noticia3', 3, 'imagenes/noticias/ja.jpg', 'ftyt', '', '2015-07-10'),
+(5, 'noticia4', 3, 'imagenes/noticias/jb.jpg', 'sdfdsf', '', '2015-07-10');
 
 -- --------------------------------------------------------
 
@@ -1366,7 +1391,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `cod_reg_us` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
   `corrfm_us` varchar(455) COLLATE utf8_spanish_ci NOT NULL,
   `fecr_us` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_us`, `avat_us`, `cc_us`, `nom_ap_us`, `cor_us`, `tel_us`, `mov_us`, `pass_us`, `depart_id`, `muni_id`, `direc_us`, `tp_us`, `estd_us`, `cod_reg_us`, `corrfm_us`, `fecr_us`) VALUES
+(1, '', '1090447181', 'albert arias', '', '', '3143131320', '', NULL, NULL, '', '1', '1', '', '', '2015-08-04'),
+(2, '', '10904471816', 'juan molina', 'palkia925@gmail.com', '5768508', '1234567890', '', NULL, NULL, 'clll 23 mtl', '1', '1', '', '', '2015-08-04'),
+(3, '', '12345667', 'carla', '', '', '', '', NULL, NULL, '', '1', '1', '', '', '2015-08-04');
 
 --
 -- Índices para tablas volcadas
@@ -1383,6 +1417,12 @@ ALTER TABLE `abogad`
 --
 ALTER TABLE `administrador`
  ADD PRIMARY KEY (`id_adm`);
+
+--
+-- Indices de la tabla `casos`
+--
+ALTER TABLE `casos`
+ ADD PRIMARY KEY (`id_cas`), ADD KEY `us_id` (`us_id`);
 
 --
 -- Indices de la tabla `departamentos`
@@ -1447,6 +1487,11 @@ MODIFY `id_ab` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 ALTER TABLE `administrador`
 MODIFY `id_adm` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT de la tabla `casos`
+--
+ALTER TABLE `casos`
+MODIFY `id_cas` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT de la tabla `departamentos`
 --
 ALTER TABLE `departamentos`
@@ -1470,7 +1515,7 @@ MODIFY `id_municipio` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1113;
 -- AUTO_INCREMENT de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-MODIFY `id_nt` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id_nt` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT de la tabla `portafolio`
 --
@@ -1485,10 +1530,16 @@ MODIFY `id_tp` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id_us` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `casos`
+--
+ALTER TABLE `casos`
+ADD CONSTRAINT `casos_ibfk_1` FOREIGN KEY (`us_id`) REFERENCES `usuarios` (`id_us`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `municipios`
