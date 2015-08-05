@@ -1,0 +1,60 @@
+h1,h2{
+	text-align: center;
+}
+#casosver{
+	border:1px solid #EBEBEB;
+	color: #202020;
+	padding-left: 1em;
+	width: 60%
+}
+	#casosver .tdscasos{
+		border-bottom: 1px solid #D6D9DB;
+		padding-bottom: 0.5em;
+	}
+		#casosver .tdscasos a{
+			background: #254D81;
+			border-radius: 5px;
+			color: #fff;
+			padding: 0 0.5em;
+			text-decoration: none;
+		}
+		#casosver .tdscasos a:hover,#casosver .tdscasos a:active{
+			background: #0B203D;
+		}
+		#casosver .tdscasos h3{
+			margin: 0;
+		}
+		#casosver .tdscasos i,.respp{
+			font-size: 10px;
+		}
+.flxyt{
+	display: flex;
+	-webkit-justify-content: space-around;
+	-ms-justify-content: space-around;
+	justify-content: space-around;
+}
+.yti{
+	margin: 1em 0;
+	width: 35%;
+}
+		.yti form article{
+			display: flex;
+			-webkit-justify-content: space-around;
+			-ms-justify-content: space-around;
+			justify-content: space-around;
+			margin-bottom: 1em;
+		}
+.texpp,.respp{
+	padding: 0.5em;
+}
+@media screen and (max-width: 900px){
+	.flxyt{
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+	}
+	#casosver,.yti{
+		margin: 1em auto;
+		width: 90%;
+	}
+}

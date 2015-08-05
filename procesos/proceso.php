@@ -1,31 +1,45 @@
 <?php
 	include '../config.php';
-	$datos="SELECT * from portafolio where id_pft=1";
-	$sql_datos=mysql_query($datos,$conexion) or die (mysql_error());
-	while ($dt=mysql_fetch_array($sql_datos)) {
-		$textopf=$dt['text_pft'];
+	include '../fecha_format.php';
+	$idR=$_GET['cs'];
+	if ($idR=="") {
+?>
+<script type="text/javascript">
+	alert('id de caso no disponible');
+	window.location.href="../procesos";
+</script>
+<?php
 	}
+	else{
+		$datos="SELECT * from casos where id_cas=$idR";
+		$sql_datos=mysql_query($datos,$conexion) or die (mysql_error());
+		while ($dt=mysql_fetch_array($sql_datos)) {
+			$cstt=$dt['tit_cas'];
+			$csxt=$dt['text_cas'];
+			$cses=$dt['es_cas'];
+			$csfe=$dt['fe_cas'];
+		}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, maximun-scale=1" />
-	<meta name="description" content="Portafolio de servicios" />
-	<meta name="keywords" content="Nuestro portafolio" />
-	<title>Portafolio | Vargas Nossa y Asociados</title>
+	<meta name="description" content="<?php echo $csxt ?>" />
+	<meta name="keywords" content="Procesos, casos" />
+	<title><?php echo "$cstt"; ?> | Vargas Nossa y Asociados</title>
 	<link rel="icon" href="../imagenes/icon.png" />
 	<link rel="stylesheet" href="../css/normalize.css" />
 	<link rel="stylesheet" href="../css/iconos/style.css" />
 	<link rel="stylesheet" href="../css/style.css" />
-	<link rel="stylesheet" href="../css/noticias.css" />
+	<link rel="stylesheet" href="../css/procesos.css" />
 	<script src="../js/jquery_2_1_1.js"></script>
 	<script src="../js/scripag.js"></script>
 	<script type="application/ld+json">
 		{
 		  "@context" : "http://schema.org",
 		  "@type" : "LocalBusiness",
-		  "name" : "Protafolio |Vargas Nossa y Asosciados",
+		  "name" : "Procesos o casos |Vargas Nossa y Asosciados",
 		  "image" : "url"
 		}
 	</script>
@@ -56,18 +70,19 @@
 		<nav id="mnP">
 			<a href="../">Inicio</a>
 			<a href="../nosotros">Quienes Somos</a>
-			<a class="sel" href="../portafolio">Portafolio de Servicios</a>
-			<a href="../procesos">Procesos</a>
+			<a href="../portafolio">Portafolio de Servicios</a>
+			<a class="sel" href="../procesos">Procesos</a>
 			<a href="../contacto">Contacto</a>
 		</nav>
 		<div id="mn_mv"><span class="icon-menu"></span></div>
 	</article>
 	<section>
-		<article id="automargen">
-			<h1>Portafolio</h1>
-			<article>
-				<?php echo "$textopf"; ?>
-			</article>
+		<h1><?php echo "$cstt"; ?></h1>
+		<article id="automargen" class="texpp">
+			<?php echo "$csxt"; ?>
+		</article>
+		<article id="automargen" class="respp">
+			<i><?php echo fechatraducearray($csfe); ?></i>
 		</article>
 	</section>
 	<footer>
@@ -104,3 +119,6 @@
 	<script src="../js/colmapa.js"></script>
 </body>
 </html>
+<?php
+	}
+?>

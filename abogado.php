@@ -70,8 +70,9 @@
 	<article id="automargen" class="menuP">
 		<nav id="mnP">
 			<a href="index.php">Inicio</a>
-			<a href="portafolio">Portafolio de Servicios</a>
 			<a href="nosotros">Quienes Somos</a>
+			<a href="portafolio">Portafolio de Servicios</a>
+			<a href="procesos">Procesos</a>
 			<a href="contacto">Contacto</a>
 		</nav>
 		<div id="mn_mv"><span class="icon-menu"></span></div>
