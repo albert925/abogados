@@ -79,6 +79,7 @@
 			<a class="sel" href="../abogados">Abogados</a>
 			<a href="../frases">Frases</a>
 			<a href="../portafolio">Portafolio</a>
+			<a href="../casos">Procesos o casos</a>
 			<a href="../"><?php echo "$usad"; ?></a>
 			<a href="../../../cerrar">Salir</a>
 		</nav>

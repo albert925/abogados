@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="../../css/normalize.css" />
 	<link rel="stylesheet" href="../../css/iconos/style.css" />
 	<link rel="stylesheet" href="../../css/style.css" />
-		<link rel="stylesheet" href="../../css/styadmin.css" />
+	<link rel="stylesheet" href="../../css/styadmin.css" />
 	<script src="../../js/jquery_2_1_1.js"></script>
 	<script src="../../js/scripag.js"></script>
 	<script src="../../js/adm.js"></script>
@@ -58,6 +58,7 @@
 			<a href="abogados">Abogados</a>
 			<a href="frases">Frases</a>
 			<a href="portafolio">Portafolio</a>
+			<a href="casos">Procesos o casos</a>
 			<a href=""><?php echo "$usad"; ?></a>
 			<a href="../../cerrar">Salir</a>
 		</nav>
